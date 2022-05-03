@@ -1,0 +1,9 @@
+.tweets {
+  padding-left: 16px;
+  padding-right: 16px;
+  border: 1px solid green;
+  margin-left: 16px;
+  padding-bottom: 16px;
+  height: 50%;
+  overflow: scroll;
+}

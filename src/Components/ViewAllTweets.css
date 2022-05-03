@@ -1,0 +1,38 @@
+.tweet-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #2a91ad;
+  overflow-x: hidden;
+  padding-top: 20px;
+  margin-top: 70px;
+}
+
+.sidenav ul Button {
+  left: 0;
+  padding: 4px 8px 6px 8px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fdf9f9;
+  display: block;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav li {
+    font-size: 18px;
+  }
+}
