@@ -27,9 +27,13 @@ class Tweet extends React.Component {
     try {
       response = await (
         await fetch(
-          `http://localhost:8081/api/v1.0/tweets/${userId}/delete/${tweetId}`,
+          `http://tweetapp-alb-1377564203.us-east-1.elb.amazonaws.com/api/v1.0/tweets/${userId}/delete/${tweetId}`,
           {
             method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
           }
         )
       ).json();
@@ -118,11 +122,12 @@ class Tweet extends React.Component {
     try {
       response = await (
         await fetch(
-          `http://localhost:8081/api/v1.0/tweets/${userId}/like/${tweetId}`,
+          `http://tweetapp-alb-1377564203.us-east-1.elb.amazonaws.com/api/v1.0/tweets/${userId}/like/${tweetId}`,
           {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify({
               email: userId,

@@ -31,12 +31,16 @@ class ViewMyTweets extends React.Component {
 
     try {
       response = await (
-        await fetch(`http://localhost:8081/api/v1.0/tweets/${email}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+        await fetch(
+          `http://tweetapp-alb-1377564203.us-east-1.elb.amazonaws.com/api/v1.0/tweets/${email}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        )
       ).json();
     } catch (e) {
       errored = true;
@@ -103,16 +107,20 @@ class ViewMyTweets extends React.Component {
     let errored = false;
     try {
       response = await (
-        await fetch(`http://localhost:8081/api/v1.0/tweets/${email}/add`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: localStorage.getItem("email"),
-            tweetMessage: this.state.newPost,
-          }),
-        })
+        await fetch(
+          `http://tweetapp-alb-1377564203.us-east-1.elb.amazonaws.com/api/v1.0/tweets/${email}/add`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+              email: localStorage.getItem("email"),
+              tweetMessage: this.state.newPost,
+            }),
+          }
+        )
       ).json();
     } catch (e) {
       errored = true;
